@@ -14,5 +14,17 @@
 
 
 <ion-content padding>
-
+  <form[formgroup]="loginform" (submit)="loginuser()" novalidate>
+    <ion-item>
+      <ion-label stacked>Email</ion-label>
+      <ion-input formcontrolname="Email" type="email" placeholder="Alamat email anda"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Password</ion-label>
+      <ion-input formcontrolname="Password" type="password" placeholder="Password"></ion-input>
+      <button ion-button block type="submit">Login</button>
+    </ion-item>    
+    </form>
+    <button ion-button block clear (click)="gotosignup()">New User</button>
+    <button ion-button block clear (click)="gotoresetpass()">Lupa Password</button>
 </ion-content>

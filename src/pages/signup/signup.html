@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content padding>
-  <form [formGroup]="signupForm" (submit)="signupuser()" novalidate>
+  <form [formGroup]="signupForm" (submit)="signupUser()" novalidate>
     <ion-item>
       <ion-label stacked>Email</ion-label>
       <ion-input formControlName="email" type="email" placeholder="Alamat email anda" [class.invalid]="!signupForm.controls.email.valid && blur"></ion-input>

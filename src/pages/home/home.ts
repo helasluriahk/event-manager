@@ -11,4 +11,16 @@ export class HomePage {
 
   }
 
+  // melihat profile
+  goToProfile():void{
+    this.navCtrl.push('ProfilePage')
+  }
+  // membuat event
+  gotoCreate():void{
+    this.navCtrl.push('EventcreatePage')
+  }
+  // melihat daftar event
+  gotoList():void{
+    this.navCtrl.push('EventlistPage')
+  }
 }

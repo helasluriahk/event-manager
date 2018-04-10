@@ -1,5 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+//import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import firebase from 'firebase';
+import { User, AuthCredential } from '@firebase/auth-types';
+import { Reference } from '@firebase/database-types'
 
 /*
   Generated class for the ProfileProvider provider.
@@ -10,8 +13,24 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ProfileProvider {
 
-  constructor(public http: HttpClient) {
+  public currentUser: User;
+  public userProfile: Reference;
+
+  constructor() {
     console.log('Hello ProfileProvider Provider');
+
+    //cek firebase
+    firebase.auth().onAuthStateChanged(user=>{
+      if (user){
+        this.currentUser=user;
+        this.userProfile=firebase.database().ref(`/userProfile/${user.uid}`);
+        
+      }
+    });
+  }
+
+  getUserProfile(): Reference{
+      return this.userProfile;
   }
 
 }

@@ -7,6 +7,7 @@ import {
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HomePage } from '../../pages/home/home';
 import { AuthProvider } from '../../providers/auth/auth';
+import { SignupPage } from '../signup/signup';
 
 @IonicPage()
 @Component({
@@ -73,6 +74,15 @@ export class LoginPage {
       this.loading.present();
     }
   }
+
+  goToSignup(): void{
+    this.navCtrl.push('SignupPage');
+  }
+
+  goToResetPassword(): void{
+    this.navCtrl.push('ResetpassPage')
+  }
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');

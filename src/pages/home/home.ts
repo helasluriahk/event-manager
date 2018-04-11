@@ -12,15 +12,18 @@ export class HomePage {
   }
 
   // melihat profile
-  goToProfile():void{
-    this.navCtrl.push('ProfilePage')
+  goToProfile():void {
+    this.navCtrl.push('ProfilePage');
   }
-  // membuat event
-  gotoCreate():void{
-    this.navCtrl.push('EventcreatePage')
+
+  // membuat event baru
+  goToCreate():void {
+    this.navCtrl.push('EventCreatePage');
   }
+
   // melihat daftar event
-  gotoList():void{
-    this.navCtrl.push('EventlistPage')
+  goToList():void {
+    this.navCtrl.push('EventListPage');
   }
+
 }

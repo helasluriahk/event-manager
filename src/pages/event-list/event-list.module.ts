@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { ResetpassPage } from './resetpass';
+import { EventListPage } from './event-list';
 
 @NgModule({
   declarations: [
-    ResetpassPage,
+    EventListPage,
   ],
   imports: [
-    IonicPageModule.forChild(ResetpassPage),
+    IonicPageModule.forChild(EventListPage),
   ],
 })
-export class ResetpassPageModule {}
+export class EventListPageModule {}

@@ -9,20 +9,12 @@ import { HomePage } from '../../pages/home/home';
 import { AuthProvider } from '../../providers/auth/auth';
 
 
-/**
- * Generated class for the SignupPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-signup',
   templateUrl: 'signup.html',
 })
 export class SignupPage {
-
   public signupForm: FormGroup;
   public loading: Loading;
 
@@ -34,7 +26,7 @@ export class SignupPage {
     public authProvider: AuthProvider,
     public formBuilder: FormBuilder) {
 
-      // validasi form
+    // validasi form
     this.signupForm = formBuilder.group({
       email: [
         '',
@@ -45,26 +37,25 @@ export class SignupPage {
         Validators.compose([Validators.required, Validators.minLength(8)])
       ]
     });
-
   }
 
-  signupUser(): void{
-      // cek apakah email dan password sudah valid
-    if (!this.signupForm.valid) {
-      console.log(`Form tidak valid: ${this.signupForm.value}`);
-    } else {
-      // baca formControlName dahulu
+  // proses register user baru
+  signupUser(): void {
+    // cek validasi form
+    if(!this.signupForm.valid){     // jika form belum valid
+      console.log(`Lengkapi isian form: ${this.signupForm.value}`);
+    } else {        // jika form sudah valid
       const email = this.signupForm.value.email;
       const password = this.signupForm.value.password;
 
       // cek dari firebase
       this.authProvider.signupUser(email, password).then(
-        authData => {       // resolve
+        user => {       // resolve
           this.loading.dismiss().then(() => {
             this.navCtrl.setRoot(HomePage);
           });
         },
-        error => {          // reject
+        error => {      // reject
           this.loading.dismiss().then(() => {
             const alert: Alert = this.alertCtrl.create({
               message: error.message,
@@ -80,8 +71,7 @@ export class SignupPage {
       this.loading = this.loadingCtrl.create();
       this.loading.present();
     }
-  } 
-  
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SignupPage');

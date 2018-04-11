@@ -5,21 +5,22 @@
     </ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="goToProfile()">
-        <ion-icon name="person"></ion-icon>
+        
+        <img src="../../assets/imgs/team.png" width="32" height="32" />
       </button>
     </ion-buttons>
-    </ion-navbar>
+  </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h5>Aplikasi Management Kegiatan</h5>
+  <h5 style="text-align: center">Aplikasi Managemen Kegiatan</h5>
   <hr>
 
-  <button ion-button block color="primary" (click)="gotoCreate()">
+  <button ion-button block color="color1" (click)="goToCreate()">
     Buat Event Baru
   </button>
 
-  <button ion-button block color="primary" (click)="gotoList()">
-    List Daftar Event
+  <button ion-button block color="color2" (click)="goToList()">
+    Lihat Daftar Event
   </button>
 </ion-content>

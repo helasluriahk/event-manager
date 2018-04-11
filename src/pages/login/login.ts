@@ -7,7 +7,6 @@ import {
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HomePage } from '../../pages/home/home';
 import { AuthProvider } from '../../providers/auth/auth';
-import { SignupPage } from '../signup/signup';
 
 @IonicPage()
 @Component({
@@ -43,9 +42,9 @@ export class LoginPage {
   // proses login user
   loginUser() {
     // cek apakah email dan password sudah valid
-    if (!this.loginForm.valid) {
+    if (!this.loginForm.valid) {      // jika tidak valid
       console.log(`Form tidak valid: ${this.loginForm.value}`);
-    } else {
+    } else {      // jika sudah valid
       // baca formControlName dahulu
       const email = this.loginForm.value.email;
       const password = this.loginForm.value.password;
@@ -75,14 +74,15 @@ export class LoginPage {
     }
   }
 
-  goToSignup(): void{
+  // membuka form signup
+  goToSignup(): void {
     this.navCtrl.push('SignupPage');
   }
 
-  goToResetPassword(): void{
-    this.navCtrl.push('ResetpassPage')
+  // membuka form reset password
+  goToResetPassword(): void {
+    this.navCtrl.push('ResetPasswordPage');
   }
-
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');

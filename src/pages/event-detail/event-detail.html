@@ -18,7 +18,7 @@
     <ion-card-header>
       {{currentEvent?.name}}
     </ion-card-header>
-      <io-card-content>
+      <ion-card-content (click)="goToEventEdit(eventId)"> 
         <p>
           Harga Tiket : <strong>IDR {{currentEvent?.price}}</strong>
         </p>
@@ -28,6 +28,6 @@
         <p>
           Contact Person : <strong>{{currentEvent?.contact}}</strong>
         </p>
-      </io-card-content>
+      </ion-card-content>
   </ion-card>
 </ion-content>

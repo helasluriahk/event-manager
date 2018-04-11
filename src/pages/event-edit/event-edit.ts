@@ -3,21 +3,32 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EventProvider } from '../../providers/event/event'
 
 /**
- * Generated class for the EventDetailPage page.
+ * Generated class for the EventEditPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
 
-@IonicPage({segment: 'even-detail/:eventId'})
+@IonicPage({segment: 'even-edit/:eventId'})
 @Component({
-  selector: 'page-event-detail',
-  templateUrl: 'event-detail.html',
+  selector: 'page-event-edit',
+  templateUrl: 'event-edit.html',
 })
-export class EventDetailPage {
- public currentEvent: any={};
+export class EventEditPage {
+  public currentEvent: any={};
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public eventProvider: EventProvider) {
+  }
+  //Edit event 
+    editEvent(
+    eventName: string,
+    eventDate: string,
+    eventPrice: number,
+    eventContact: string
+  ):void{
+    this.eventProvider.editEvent(eventName,eventDate,eventPrice,eventContact).then(newEvent =>{
+      this.navCtrl.pop();
+    });
   }
 
   ionViewDidLoad() {
@@ -30,10 +41,4 @@ export class EventDetailPage {
     });
   }
 
-  //edit detail
- //melihat detail event
- goToEventEdit(eventId):void{
-  this.navCtrl.push('EventEditPage', { eventId: eventId});
-
-}
 }
